@@ -1,0 +1,118 @@
+version: 2
+
+models:
+  - name: users
+    description: This model contains user information.
+    columns:
+      - name: user_id
+        description: The unique identifier for a user.
+      - name: first_name
+        description: The first name of the user.
+      - name: last_name
+        description: The last name of the user.
+      - name: email
+        description: The email address of the user.
+      - name: phone_number
+        description: The phone number of the user.
+      - name: created_at
+        description: The timestamp when the user was created.
+      - name: updated_at
+        description: The timestamp when the user was last updated.
+      - name: address_id
+        description: The foreign key to the address of the user.
+
+  - name: promos
+    description: This model contains promotional information.
+    columns:
+      - name: promo_id
+        description: The unique identifier for a promotion.
+      - name: discount
+        description: The discount amount.
+      - name: status
+        description: The status of the promotion.
+
+  - name: products
+    description: This model contains product information.
+    columns:
+      - name: product_id
+        description: The unique identifier for a product.
+      - name: name
+        description: The name of the product.
+      - name: price
+        description: The price of the product.
+      - name: inventory
+        description: The current inventory level of the product.
+
+  - name: orders
+    description: This model contains order information.
+    columns:
+      - name: order_id
+        description: The unique identifier for an order.
+      - name: promo_id
+        description: The promotional identifier associated with the order.
+      - name: user_id
+        description: The user identifier who placed the order.
+      - name: address_id
+        description: The address identifier where the order is shipped to.
+      - name: created_at
+        description: The timestamp when the order was created.
+      - name: order_cost
+        description: The cost of the order before shipping and discounts.
+      - name: shipping_cost
+        description: The cost of shipping for the order.
+      - name: order_total
+        description: The total cost of the order including shipping and after discounts.
+      - name: tracking_id
+        description: The tracking identifier for the order shipment.
+      - name: shipping_service
+        description: The shipping service used for the order.
+      - name: estimated_delivery_at
+        description: The estimated delivery timestamp for the order.
+      - name: delivered_at
+        description: The actual delivery timestamp of the order.
+      - name: status
+        description: The status of the order.
+
+  - name: order_items
+    description: This model contains items within orders.
+    columns:
+      - name: order_id
+        description: The identifier of the order.
+      - name: product_id
+        description: The identifier of the product.
+      - name: quantity
+        description: The quantity of the product ordered.
+
+  - name: events
+    description: This model contains user interaction events.
+    columns:
+      - name: event_id
+        description: The unique identifier for an event.
+      - name: session_id
+        description: The session identifier during which the event occurred.
+      - name: user_id
+        description: The user identifier who triggered the event.
+      - name: event_type
+        description: The type of event.
+      - name: page_url
+        description: The URL of the page where the event occurred.
+      - name: created_at
+        description: The timestamp when the event was created.
+      - name: order_id
+        description: The order identifier associated with the event, if applicable.
+      - name: product_id
+        description: The product identifier associated with the event, if applicable.
+
+  - name: addresses
+    description: This model contains address information.
+    columns:
+      - name: address_id
+        description: The unique identifier for an address.
+      - name: address
+        description: The full address.
+      - name: zipcode
+        description: The zipcode of the address.
+      - name: state
+        description: The state of the address.
+      - name: country
+        description: The country of the address.
