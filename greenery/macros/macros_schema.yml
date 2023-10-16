@@ -1,0 +1,22 @@
+version: 2
+
+macros:
+  - name: sum_of
+    description: |
+      This macro returns a SQL snippet for a conditional sum.
+      The sum increments by 1 when the specified column has the specified value.
+    arguments:
+      - name: col_name
+        type: String
+        description: The name of the column to be evaluated.
+      - name: col_value
+        type: String
+        description: The value to be compared to the column values.
+
+  - name: grant_to_role
+    description: |
+      This macro generates SQL for granting usage on a schema and select on a table to a specified role.
+    arguments:
+      - name: role
+        type: String
+        description: The name of the role to grant permissions to.
